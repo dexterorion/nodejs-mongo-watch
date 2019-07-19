@@ -17,7 +17,7 @@ var inventoryItemSchema = mongoose.Schema({
     }
 });
 
-var InventoryItem = module.exports = mongoose.Model("inventoryItem", inventoryItemSchema);
+var InventoryItem = module.exports = mongoose.model("inventoryItem", inventoryItemSchema);
 
 module.exports.get = function(callback, limit) {
     InventoryItem.find(callback).limit(limit);

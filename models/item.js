@@ -3,10 +3,6 @@ var updateIfCurrentPlugin = require('mongoose-update-if-current').updateIfCurren
 mongoose.plugin(updateIfCurrentPlugin);
 
 var itemSchema = mongoose.Schema({
-    version: {
-        type: Number,
-        required: true
-    },
     name: {
         type: String,
         required: true
@@ -17,7 +13,7 @@ var itemSchema = mongoose.Schema({
     }
 });
 
-var Item = module.exports = mongoose.Model("item", itemSchema);
+var Item = module.exports = mongoose.model("item", itemSchema);
 
 module.exports.get = function(callback, limit) {
     Item.find(callback).limit(limit);

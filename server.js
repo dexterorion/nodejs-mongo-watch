@@ -2,6 +2,7 @@ let express = require("express");
 let bodyParser = require("body-parser");
 let app = express();
 let contactsRoutes = require("./routes/contact");
+let itemsRoutes = require("./routes/item");
 let mongoose = require("mongoose");
 let dotenv = require('dotenv');
 dotenv.config();
@@ -25,7 +26,10 @@ else {
 
 var port = process.env.PORT || 8080;
 
-app.use("/api", contactsRoutes);
+app.use("/api", 
+    contactsRoutes,
+    itemsRoutes);
+    
 app.listen(port, function() {
     console.log("Listening on port " + port);
 });
